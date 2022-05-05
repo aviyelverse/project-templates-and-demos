@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatwoot in Vanilla HTML</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <main>
+        <h1>It's really really easy to integrate Chatwoot in ANY project!</h1>
+    </main>
+
+    <script>
+        window.chatwootSettings = {
+                // The small chatwoot widget will be displayed in the bottom right corner of the page.
+                hideMessageBubble: false,
+                position: "right", // This can be left or right
+                locale: "en",
+                type: "expanded_bubble", // [standard, expanded_bubble]
+                darkmode: "auto",
+                launcherTitle: "It's that easy!", //Custom text
+            };
+        (function (d, t) {
+            var BASE_URL = "https://app.chatwoot.com";
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = BASE_URL + "/packs/js/sdk.js";
+            g.defer = true;
+            g.async = true;
+            s.parentNode.insertBefore(g, s);
+            g.onload = function () {
+                window.chatwootSDK.run({
+                    websiteToken: 'Q4ESVSHz267aQCty5nGWW37R',
+                    baseUrl: BASE_URL
+                })
+            }
+        })(document, "script");
+    </script>
+</body>
+
+</html>
